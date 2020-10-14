@@ -40,9 +40,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `image`, `price`) VALUES
-(1, 'Yeast Doughnuts', 'image.jpg', 300.00),
-(2, 'Cake Doughnuts', 'image1.jpg', 350.00),
-(3, 'Potato Doughnuts', 'image2.jpg', 400.00);
+(1, 'Yeast Doughnuts', 'media/image.jpg', 300.00),
+(2, 'Cake Doughnuts', 'media/image1.jpg', 350.00),
+(3, 'Potato Doughnuts', 'media/image2.jpg', 400.00);
 
 -- --------------------------------------------------------
 
