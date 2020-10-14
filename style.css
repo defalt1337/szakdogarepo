@@ -1,0 +1,35 @@
+body {
+    scroll-behavior: smooth;
+    background-color: rgb(90, 35, 255);
+    color: black;
+}
+a{
+    text-align: left;
+}
+h2{
+    text-align: center;
+}
+
+p {
+    text-align: left;
+    padding-top: 50px;
+}
+
+h4 {
+    padding-top: 50px;
+    text-align: center;
+}
+
+img {
+    margin-bottom: 3px;
+    margin-top: 1px;
+}
+
+.navbar.navbar-default .navbar-brand {
+    margin-left: 5px;
+}
+
+.navbar.navbar-default .navbar-nav {
+    margin-bottom: 5px;
+    margin-top: 0px;
+}

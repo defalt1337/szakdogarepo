@@ -1,0 +1,88 @@
+<!-- <?php
+if(isset($_SESSION['username']) && !empty($_SESSION['username'])) :
+?>
+<a href="index.php?logout='1'" style="color: magenta;"> Logout</a>
+<?php endif?> -->
+
+
+//separated logout button with hider when it's not logged in!!
+
+
+
+
+
+$_SESSION['username'] = $username;
+$_SESSION['success'] = "You are now logged in! ";
+header('location: home.php');
+}else{
+array_push($errors, "Wrong username or password");
+}
+
+
+
+<div class="bg-image">
+
+</div>
+
+
+
+//usertypebs
+
+  <?php include 'changeusertype.php'?>
+      <form action="changeusertype.php" method="POST"> <strong>Change user type</strong>
+      <td>
+      <select name="dropdown" id="#">
+      <option value="1">admin</option>
+      <option value="2">user</option>
+      <option value="3">customer</option>
+      </select>
+      <select name="dropdown" id="#">
+        <option value="4"></option>
+      <input type="submit" name="showvalues" value="show">
+      </select>
+      </td>
+      </form>
+
+
+
+
+
+
+
+
+
+      if(isset($_POST["add_to_cart"])){
+            if(isset($_SESSION["shopping_cart"])){
+              $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+              if(!in_array($_GET["id"], $item_array_id)){
+                $count = count($_SESSION["shopping_cart"]);
+                $item_array = array(
+                 'item_id'=>$_GET["id"],
+                 'i_nev'=>$_POST["h_name"],
+                 'i_ar'=> $_POST["h_price"],
+                 'i_menny'=>$_POST["quantity"]);
+                $_SESSION["shopping_cart"][$count] = $item_array;
+              }else{
+                echo '<script>alert("added already")</script>';
+                echo '<script>window.location="store.php"</script>';
+            }else{
+              $item_array = array(
+                'item_id'=>$_GET["id"],
+                'i_nev'=>$_POST["h_name"],
+                'i_ar'=>$_POST["h_price"],
+                'i_menny'=>$_POST["quantity"]);
+                $_SESSION["shopping_cart"][0] = $item_array;
+              }
+            }
+            if(isset($_GET["action"])){
+              if($_GET["action"] == "delete"){
+                foreach($_SESSION["shopping_cart"] as $keys => $values){
+                  if($values["item_id"] == $_GET["id"]){
+                    unset($_SESSION["shopping_cart"][$keys]);
+                    echo '<script>alert("Item Removed")</script>';
+                    echo '<script>window.location="store.php"</script>';
+                  }
+                }
+              }
+            }
+          }
